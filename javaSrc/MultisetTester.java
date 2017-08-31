@@ -117,6 +117,9 @@ public class MultisetTester
 	 */
 	public static void main(String[] args) {
 
+		//code added to begin recording run time
+		final long startTime = System.nanoTime();
+		
 		// check number of command line arguments
 		if (args.length > 2 || args.length < 1) {
 			System.err.println("Incorrect number of arguments.");
@@ -168,7 +171,11 @@ public class MultisetTester
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
-
+		
+		//code added to print final run time
+		final long duration = System.nanoTime() - startTime;
+		System.out.println(duration/1000000000);
+		
 	} // end of main()
 
 } // end of class MultisetTester
