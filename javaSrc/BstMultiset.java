@@ -128,7 +128,7 @@ public class BstMultiset<T> extends Multiset<T>
 
 	public int search(Node<T> root, T item) {
 		/*int cmp = ...*/
-		int mSearch = EMPTY_TREE;
+		int mSearch = ZERO;
 		/* Check if the root exists */
 		if (isEmpty(root)) {
 			return mSearch;
@@ -148,8 +148,7 @@ public class BstMultiset<T> extends Multiset<T>
 		int src = search(item);
 		// Implement me!
 		if (src < ONE) {
-			throw new IllegalArgumentException
-			("item does not exist in the tree");
+			return;
 		}
 		else if (src == ONE) {
 			//if there is only one instance of the item, it would be the same as remove all
@@ -178,8 +177,7 @@ public class BstMultiset<T> extends Multiset<T>
 		// Implement me!
 		int src = search(item);
 		if (src < ONE) {
-			throw new IllegalArgumentException
-			("item does not exist in the tree");
+			return;
 		}
 		else {
 			mRoot = removeAll(mRoot, item);
@@ -220,10 +218,14 @@ public class BstMultiset<T> extends Multiset<T>
 
 	public void print(PrintStream out) {
 		// Implement me!
-		inorder(mRoot);
-		System.out.println("~\n");
+		//System.out.println("in");
+		//inorder(mRoot);
+		//System.out.println("pre");
+		preorder(mRoot);
+		//System.out.println("post");
+		System.out.println("");
 	} // end of print()
-
+/*
 	protected void inorder(Node<T> root) {
 		if (isEmpty(root)) {
 			return;
@@ -233,5 +235,24 @@ public class BstMultiset<T> extends Multiset<T>
 		nodePrint(root);
 		inorder(root.mRight);
 	} //end of inorder()
-	
+*/
+	protected void preorder(Node<T> root) {
+		if (isEmpty(root)) {
+			return;
+		}
+		nodePrint(root);
+		preorder(root.mLeft);
+		preorder(root.mRight);
+	} //end of preorder()
+/*
+	protected void postorder (Node<T> root) {
+		if (isEmpty(root)) {
+			return;
+		}
+		postorder(root.mLeft);
+		postorder(root.mRight);
+		nodePrint(root);
+	} //end of postorder()
+*/
+
 } // end of class BstMultiset
