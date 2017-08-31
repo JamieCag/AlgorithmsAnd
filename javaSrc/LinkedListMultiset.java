@@ -57,7 +57,9 @@ public class LinkedListMultiset<T> extends Multiset<T>
 	public void removeOne(T item) {
 		LinkedListNode<T> node = head;
 		
-		if(head.getValue().equals(item)) {
+		if(head == null) {
+		
+		} else if(head.getValue().equals(item)) {
 			if(head.getCount() > 1) {
 				head.reduceNodeCount();
 			} else {
@@ -87,7 +89,9 @@ public class LinkedListMultiset<T> extends Multiset<T>
 	public void removeAll(T item) {
 		LinkedListNode<T> node = head;
 		
-		if(head.getValue().equals(item)) {
+		if(head == null) {
+		
+		} else if(head.getValue().equals(item)) {
 			head = head.getNext();
 			node.setNext(null);
 			size--;
