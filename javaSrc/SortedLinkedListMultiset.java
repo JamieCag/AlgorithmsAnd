@@ -94,7 +94,7 @@ public class SortedLinkedListMultiset<T> extends Multiset<T>
 		LinkedListNode<T> node = head;
 		
 		if(head == null) {
-			
+
 		} else if(head.getValue().equals(item)) {
 			if(head.getCount() > 1) {
 				head.reduceNodeCount();
@@ -127,7 +127,7 @@ public class SortedLinkedListMultiset<T> extends Multiset<T>
 		LinkedListNode<T> node = head;
 		
 		if(head == null) {
-			
+
 		} else if(head.getValue().equals(item)) {
 			head = head.getNext();
 			node.setNext(null);
